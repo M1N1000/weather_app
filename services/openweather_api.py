@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-from common.tools import kelvin_to_celsius, ms_to_km
+from common.tools import convert_temp, convert_wind_speed
 from config import Config
 
 def get_weather():
@@ -16,9 +16,9 @@ def get_weather():
 
         record = {
             "city": data.get("name"),
-            "temp": kelvin_to_celsius(data.get("main").get("temp")),
-            "feels_like": kelvin_to_celsius(data.get("main").get("feels_like")),
-            "wind": ms_to_km(data.get("wind").get("speed")),
+            "temp": convert_temp(data.get("main").get("temp")),
+            "feels_like": convert_temp(data.get("main").get("feels_like")),
+            "wind": convert_wind_speed(data.get("wind").get("speed")),
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "humidity": data.get("main").get("humidity"),
             "pressure": data.get("main").get("pressure"),

@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+file_path = os.path.join(BASE_DIR, "services", "lisbon.xlsx")
 
-import streamlit as st
-import pandas as pd
 
 def render_dashboard(file):
 
@@ -120,5 +122,4 @@ def render_dashboard(file):
     )
 
 if __name__ == "__main__":
-    render_dashboard("services/lisbon.xlsx")
-
+    render_dashboard(file_path)
