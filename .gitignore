@@ -6,3 +6,8 @@
 
 venv
 idea
+
+
+.env
+services/__pycache__
+__pycache__
